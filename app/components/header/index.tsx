@@ -3,9 +3,9 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { BsFillMicFill, BsSearch } from "react-icons/bs";
 import { SiYoutube } from "react-icons/si";
 
-export default function Navbar() {
+export default function Header() {
   return (
-    <nav className="flex items-center justify-between py-2 px-4 border-b">
+    <nav className="flex items-center justify-between h-14 px-4 border-b sticky top-0 bg-white">
       {/* left section  */}
       <div className="flex items-center space-x-4">
         <button>
@@ -14,7 +14,7 @@ export default function Navbar() {
 
         <div className="flex items-center space-x-2">
           <div>
-            <SiYoutube className="text-red-600 text-2xl"  />
+            <SiYoutube className="text-red-600 text-2xl" />
           </div>
           <h6 className="text-xl font-medium">RemixTube</h6>
         </div>
@@ -24,11 +24,7 @@ export default function Navbar() {
 
       <div className="flex items-center space-x-2">
         <div className="flex items-center space-x-1">
-          <input
-            type="text"
-            placeholder="Search RemixTube"
-            className="py-1"
-          />
+          <input type="text" placeholder="Search RemixTube" className="py-1" />
           <button className="bg-gray-200 p-2">
             <BsSearch className="text-md" />
           </button>

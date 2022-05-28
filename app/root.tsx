@@ -7,6 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Header from "./components/header";
+import Sidebar from "./components/sidebar";
 
 import styles from "./tailwind.css";
 
@@ -25,8 +27,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body className="min-h-screen bg-gray-50">
+        <Header />
+        <Sidebar />
+        <main className="ml-60">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
