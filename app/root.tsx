@@ -30,9 +30,9 @@ export default function App() {
       <body className="min-h-screen bg-gray-50">
         <Header />
         <Sidebar />
-        <main className="ml-60">
+        <div className="md:ml-60">
           <Outlet />
-        </main>
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -5,7 +5,7 @@ import { SiYoutube } from "react-icons/si";
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between h-14 px-4 border-b sticky top-0 bg-white">
+    <nav className="flex items-center justify-between h-14 px-4 border-b sticky top-0 bg-white z-40">
       {/* left section  */}
       <div className="flex items-center space-x-4">
         <button>
@@ -22,10 +22,10 @@ export default function Header() {
 
       {/* middle section  */}
 
-      <div className="flex items-center space-x-2">
+      <div className="lg:flex items-center space-x-2 hidden">
         <div className="flex items-center space-x-1">
           <input type="text" placeholder="Search RemixTube" className="py-1" />
-          <button className="bg-gray-200 p-2">
+          <button className="bg-gray-100 p-2 border border-black">
             <BsSearch className="text-md" />
           </button>
         </div>

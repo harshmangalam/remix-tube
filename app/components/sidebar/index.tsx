@@ -11,7 +11,7 @@ import {
 } from "react-icons/md";
 export default function Sidebar() {
   return (
-    <aside className="fixed left-0 bottom-0 top-14 w-60 bg-white">
+    <aside className="fixed left-0 bottom-0 top-14 hidden md:block  md:w-60 bg-white">
       <ul className="grid gris-cols-1 gap-4 pl-4 py-4">
         {links.map((link) => (
           <li>

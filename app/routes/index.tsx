@@ -1,10 +1,10 @@
 import { Link } from "@remix-run/react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-export default function Index() {
+export default function IndexRoute() {
   return (
     <>
       {/* tags  */}
-      <ul className="flex items-center space-x-4 bg-white border-b  px-4 py-3 sticky top-14">
+      <ul className="flex items-center space-x-4 bg-white border-b  px-4 py-3 sticky top-14 overflow-x-auto z-40">
         {[...new Array(10)].map((tag) => (
           <li>
             <Link
@@ -19,7 +19,7 @@ export default function Index() {
 
       {/* videos  */}
 
-      <ul className="px-4 py-4 grid grid-cols-4 gap-4">
+      <ul className="px-4 py-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-4 ">
         {[...new Array(16)].map((video) => (
           <li className="group">
             <div>
@@ -30,7 +30,7 @@ export default function Index() {
               />
             </div>
 
-            <div className="flex mt-3 space-x-3">
+            <div className="relative flex mt-3 space-x-3">
               <img
                 src="https://yt3.ggpht.com/_xmrueXlQyPmO379bSt2BjirLWXxNOUoQn1jV0DpOlxxeCGlx9Z2L9HxfoWMgdsdIyGFh17W1A=s68-c-k-c0x00ffffff-no-rj"
                 alt="Profile avatar"
@@ -46,7 +46,7 @@ export default function Index() {
                   {48}k views &bull; {4} months ago
                 </p>
               </div>
-              <div className="hidden group-hover:block">
+              <div className="absolute top-0 right-0 hidden group-hover:block">
                 <button>
                   <BsThreeDotsVertical className="text-xl" />
                 </button>
