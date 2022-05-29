@@ -2,10 +2,11 @@ import { AiOutlineMenu, AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { BsFillMicFill, BsSearch } from "react-icons/bs";
 import { SiYoutube } from "react-icons/si";
+import Profile from "./Profile";
 
 export default function Header() {
   return (
-    <nav className="flex items-center justify-between h-14 px-4 border-b sticky top-0 bg-white z-40">
+    <nav className="flex items-center justify-between h-14 px-4 border-b sticky top-0 bg-white z-20">
       {/* left section  */}
       <div className="flex items-center space-x-4">
         <button>
@@ -45,11 +46,7 @@ export default function Header() {
           <IoNotificationsOutline className="text-2xl" />
         </button>
 
-        <button>
-          <p className="w-7 h-7 rounded-full bg-orange-600 text-white font-medium text-lg grid place-items-center">
-            H
-          </p>
-        </button>
+        <Profile />
       </div>
     </nav>
   );

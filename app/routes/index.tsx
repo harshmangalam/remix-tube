@@ -4,7 +4,7 @@ export default function IndexRoute() {
   return (
     <>
       {/* tags  */}
-      <ul className="flex items-center space-x-4 bg-white border-b  px-4 py-3 sticky top-14 overflow-x-auto z-40">
+      <ul className="flex items-center space-x-4 bg-white border-b  px-4 py-3 sticky top-14 overflow-x-auto z-10">
         {[...new Array(10)].map((tag) => (
           <li>
             <Link
