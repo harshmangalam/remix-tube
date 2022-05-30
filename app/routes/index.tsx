@@ -1,8 +1,42 @@
-import { Link } from "@remix-run/react";
+import type { Video } from "@prisma/client";
+import { json, LoaderFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import Header from "~/components/header";
 import Sidebar from "~/components/sidebar";
+import { db } from "~/utils/db.server";
+
+type LoaderData = {
+  videoListItems: Array<{
+    id: string;
+    duration: string;
+    createdAt: Date;
+    title: string;
+    thumbnail: string;
+  }>;
+};
+export const loader: LoaderFunction = async () => {
+  const data: LoaderData = {
+    videoListItems: await db.video.findMany({
+      take: 4,
+      select: {
+        id: true,
+        duration: true,
+        createdAt: true,
+        title: true,
+        thumbnail: true,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    }),
+  };
+
+  return json(data);
+};
 export default function IndexRoute() {
+  const data = useLoaderData<LoaderData>();
+
   return (
     <>
       <Header />
@@ -25,12 +59,12 @@ export default function IndexRoute() {
         {/* videos  */}
 
         <ul className="px-4 py-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-4 ">
-          {[...new Array(16)].map((video) => (
+          {data.videoListItems.map((video) => (
             <li className="group">
               <div>
                 <img
-                  src="https://i.ytimg.com/vi/oQMc7Sq36mI/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC8iqtbWHLt1PKGHZcBVB4keniVgQ"
-                  alt="thumnail"
+                  src={video.thumbnail}
+                  alt={video.id}
                   className="w-full h-full"
                 />
               </div>
@@ -43,9 +77,7 @@ export default function IndexRoute() {
                 />
 
                 <div className="flex-grow">
-                  <h6 className="font-medium text-sm">
-                    Mastering react course for beginners
-                  </h6>
+                  <h6 className="font-medium text-sm">{video.title}</h6>
                   <p className="mt-2 text-xs text-gray-500">Harsh Mangalam</p>
                   <p className="mt-0 text-xs text-gray-500">
                     {48}k views &bull; {4} months ago
