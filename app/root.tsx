@@ -28,11 +28,7 @@ export default function App() {
         <Links />
       </head>
       <body className="min-h-screen bg-gray-50">
-        <Header />
-        <Sidebar />
-        <div className="md:ml-60">
-          <Outlet />
-        </div>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
